@@ -1,11 +1,9 @@
-<?php include_once "Content/includes/header.php";?>
+<?php include_once "../Content/includes/header.php";?>
 
 <body>
 
 
-
-
-dziala:D
+W to miejsce trafi strona ktora bedzie wyswietlana!
 
 
 
