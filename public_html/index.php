@@ -1,9 +1,19 @@
-<?php include_once "../Content/includes/header.php";?>
+<?php include_once "../Content/includes/header.php";
+      session_start();
+;?>
 
 <body>
 
+<form method="post" action="../Models/login.php">
+<input type="text" name="login"/>
+<input type="password" name="pass"/>
+<input type="submit" value="Login" name="loginbutton"/>
+<?php if(isset($_SESSION['msg_error'])) {
+  echo "<br>".$_SESSION['msg_error'];
+  session_unset();
+} ?>
+</form>
 
-W to miejsce trafi strona ktora bedzie wyswietlana!
 
 
 

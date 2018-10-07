@@ -1,21 +1,31 @@
-<?php include_once "../Content/includes/header.php";?>
+<?php
+  include_once "../Content/includes/header.php";
+  include_once "functions.php";
+;?>
 
 <body>
 <div class="container-fluid p-0">
-<div class="top-navigation">
-  <ul class="nav justify-content-end p-0 bg-dark">
-    <li class= "nav-item"><a class="nav-link" href="../public_html/index.php"><i class="fas fa-home"></i> Go to website</a></li>
-    <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope"></i> Messeges</a></li>
-    <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
-    <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-door-open"></i> Log Out</a></li>
-  </ul>
-</div>
 <div class="admin-content">
   <div class="row m-0">
-<div class="sidebar-navigation bg-dark col-sm-2">
-  <ul class="nav pl-0">
-    <li class= "nav-item col-lg-12"><h4>Hello, User</h4></li>
-    <li class= "nav-item col-lg-12"><a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+<div class="sidebar-navigation admin-bg p-0 col-sm-2">
+  <ul class="nav">
+    <li class= "nav-itemcol-lg-12">
+      <div class="img">
+        <div class="row m-0">
+          <div class="col-lg-4 p-2">
+          <img class="rounded-circle border mx-center" src="../Content/images/mojamorda.jpg">
+          </div>
+          <div class="col-lg-8 p-2">
+          <h5 class="user-welcome">Welcome Robert</h5> <!--dlugosc imienia nie moze przekroczyc 13 liter-->
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </li>
+    <li class= "nav-item col-lg-12 "><a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
     <li class= "nav-item col-lg-12"><a class="nav-link" href="#"><i class="fas fa-file"></i> Posts</a></li>
     <li class= "nav-item col-lg-12"><a class="nav-link" href="#"><i class="fas fa-book-open"></i> Pages</a></li>
     <li class= "nav-item col-lg-12"><a class="nav-link" href="#"><i class="fas fa-list"></i> Categories</a></li>
@@ -25,8 +35,15 @@
     <li class= "nav-item col-lg-12"><a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Charts</a></li>
   </ul>
 </div>
-<div class="content col-sm-10 bg-secondary">
-
+<div class="content p-0 col-sm-10 bg-secondary">
+  <div class="top-navigation">
+    <ul class="nav justify-content-end  admin-bg">
+      <li class= "nav-item"><a class="nav-link" href="../public_html/index.php"><i class="fas fa-home"></i> Go to website</a></li>
+      <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope"></i> Messeges</a></li>
+      <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+      <li class= "nav-item"><a class="nav-link" href="#"><i class="fas fa-door-open"></i> Log Out</a></li>
+    </ul>
+  </div>
 </div>
 </div>
 </div>
