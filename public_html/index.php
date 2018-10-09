@@ -1,10 +1,10 @@
-<?php include_once "../Content/includes/header.php";
-      session_start();
+<?php
+  include_once "../Content/includes/header.php";
 ;?>
 
 <body>
 
-<form method="post" action="../Models/login.php">
+<form method="post" action="../Controllers/login.php">
 <input type="text" name="login"/>
 <input type="password" name="pass"/>
 <input type="submit" value="Login" name="loginbutton"/>

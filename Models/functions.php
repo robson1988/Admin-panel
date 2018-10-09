@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //Database connection
 class Dbh {
   private $servername;
@@ -48,73 +48,106 @@ public function login($login, $pass)
    {
        try
        {
-          if(!empty($login) || !empty($pass)) {
-
            $sql = "SELECT user_name, user_pass FROM users WHERE user_name= :login";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(':login', $login);
            $stmt->execute();
 
-           if($stmt->rowCount()>0) {
+           if($stmt->rowCount()== 1) {
              $result=$stmt->fetch();
-             $dbpassword= $result['user_pass'];
 
-             if(password_verify($pass, $dbpassword)) {
-               header('Location: admin.php');
-             } else {
-               $_SESSION['msg_error'] = "Niewłaściwy login lub hasło";
-               header('Location: ../public_html/index.php');
-             }
+             $dbpass= $result['user_pass'];
+
+             if(password_verify($pass, $dbpass)) {
+
+               $_SESSION['logedIn'] = true;
+               $_SESSION['uId'] = $result['id'];
+               $_SESSION['uName'] = $result['user_name'];
+               $_SESSION['uMail'] = $result['user_email'];
+
+               header('Location: ../Content/includes/dashboard.php');
 
            } else {
-             $_SESSION['msg_error'] = "Niewłaściwy login lub hasło";
-             header('Location: ../public_html/index.php');
-           }
+                $_SESSION['msg_error'] = "Niewłaściwy login lub hasło";
 
-} else {
-  $_SESSION['msg_error'] = "Wszystkie pola musza byc wypelnione";
-  header('Location: ../public_html/index.php');
-}
+                $stmt->closeCursor();
 
+                unset($stmt);
 
-} catch(PDOException $e)
+                $db = null;
+
+                header('Location: ../public_html/index.php');
+
+                exit();
+          }
+        } else {
+
+            $_SESSION['msg_error'] = "Niewłaściwy login lub hasło";
+
+            $stmt->closeCursor();
+
+            unset($stmt);
+
+            $db = null;
+
+            header('Location: ../public_html/index.php');
+
+            exit();
+
+          }
+        }
+
+ catch(PDOException $e)
         {
             echo $e->getMessage();
         }
       }
 
 //rejestracja uzytkownika
-public function Register($newlogin, $newpass, $newemail) {
+public function Register($nlogin, $npass, $nemail) {
 
   try {
     $sql= "SELECT user_name, user_email FROM users WHERE user_name = :newlogin OR user_email = :newemail";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bindParam(":newlogin", $newlogin);
-    $stmt->bindParam(":newemail", $newemail);
+
+    $stmt->bindParam(":newlogin", $nlogin);
+    $stmt->bindParam(":newemail", $nemail);
 
     $stmt->execute();
+
     if($stmt->rowCount()!=0) {
       $_SESSION['msg_error']= "Nazwa uzytkownika lub email zajety";
-      header('Location: register.php');
+      header('Location: ../Controllers/register.php');
       exit();
-    } else {
-      $hashedPwd = password_hash($newpass, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (user_name, user_pass, user_email) VALUES (:newlogin, :hashedPwd, :newemail)";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bindParam(":newlogin", $newlogin);
-    $stmt->bindParam(":hashedPwd", $hashedPwd);
-    $stmt->bindParam(":newemail", $newemail);
+      } else {
+      $hashedPwd = password_hash($npass, PASSWORD_DEFAULT);
+      $sql = "INSERT INTO users (user_name, user_pass, user_email) VALUES (:newlogin, :hashedPwd, :newemail)";
+      $stmt = $this->conn->prepare($sql);
 
-    $stmt->execute();
-    return $stmt;
-  }
+      $stmt->bindParam(":newlogin", $nlogin);
+      $stmt->bindParam(":hashedPwd", $hashedPwd);
+      $stmt->bindParam(":newemail", $nemail);
+
+      $stmt->execute();
+
+      $stmt->closeCursor();
+
+      unset($stmt);
+
+      $db = null;
+    }
 
   } catch (PDOException $e) {
-    ECHO $e->getMessage();
+    echo $e->getMessage();
 
   }
+}
+
+public function logOut(){             //  WYLOGOWANIE UZYTKOWNIKA
+
+  session_unset($_SESSION['logedIn']);
+  return true;
+}
 
 
-      }
-
-    }
+}
