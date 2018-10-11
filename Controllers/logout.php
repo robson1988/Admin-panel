@@ -7,7 +7,7 @@ include_once "../Models/functions.php";
     } else {
       $userLogOut = new User;
       $userLogOut->logOut();
-      
+    
       header('Location: ../public_html/index.php');
       exit();
     }
