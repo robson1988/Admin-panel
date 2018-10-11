@@ -9,7 +9,6 @@ $nemail = $_POST['nEmail'];
 
 
   if(isset($_POST['createnewuser'])) {
-
       if(empty($nlogin) || empty($npass) || empty($nemail)) {
       $_SESSION['msg_error'] = "Wszystkie pola musza być wypełnione";
       header('Location: ../Controllers/register.php');
