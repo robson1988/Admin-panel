@@ -16,7 +16,7 @@
             <img class="rounded-circle border mx-center" src="../images/mojamorda.jpg">
             </div>
             <div class="col-lg-8 p-2">
-            <h5 class="user-welcome">Welcome <?php echo $_SESSION['uName']; ?></h5> <!--dlugosc imienia nie moze przekroczyc 13 liter-->
+            <h5 class="user-welcome">Welcome <?php echo $_SESSION['uLogin']; ?></h5> <!--dlugosc imienia nie moze przekroczyc 13 liter-->
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
 
     <ul class="nav justify-content-end pr-3 admin-bg">
       <li class= "nav-item"><a class="nav-link" href="../public_html/index.php"><i class="fas fa-home"></i> Homepage</a></li>
-      <li class= "nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fas fa-user"></i> <?php echo $_SESSION['uName']; ?> Bajorek</a>
+      <li class= "nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fas fa-user"></i> <?php echo $_SESSION['uLogin']; ?> Bajorek</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="profile.php"><i class="fas fa-user-edit"></i> Edit Profile</a>
             <a class="dropdown-item" href="#"><i class="fas fa-envelope"></i> Messages</a>

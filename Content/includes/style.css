@@ -1,10 +1,23 @@
-
+body { font-family: Tahoma;}
 .sidebar-navigation {height:100vh;}
 .admin-bg {background: #39393a;}
 .user-welcome {color: #e9d2f4; overflow: hidden; text-overflow: ellipsis;} /*wlasciwosc odpowiedzialna za schowanie zbyt dlugiego imienia*/
 .nav-link {color:#e9d2f4;}
-.nav-link:hover {background: #9b9b93; color: #000;}
+.nav-link:hover {background-color: #ffca28; color:#fff; text-shadow: 1px 1px 1px black;}
 .nav-item {padding: 0;}
 .rounded-circle {width:100%; height:auto; padding:.2rem;}
-.display-admin-page {height:calc(100vh - 40px);}
-.title {padding:1em;}
+
+.display-admin-page {height:calc(100vh - 40px);}                          /*strony w menu po zalogowaniu do panelu administracyjnego*/
+.title {color:#39393a; padding:.5em; font-weight: bold; text-decoration: underline;}
+.info {width:30px;}
+.tab-content .row {padding:.5rem 0 0 1rem; }
+
+.nav-tabs {flex-wrap: nowrap; border-bottom: 3px solid #ffc107;}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active { border: 3px solid #ffc107; border-bottom: transparent; color:#000; font-weight: bold;}
+.details .tab-content  { border: 3px solid #ffc107; border-top: transparent; }
+
+.nav-tabs .nav-link {color:rgba(0,0,0, 0.5); text-shadow: none;margin-bottom: -2px;}
+.form-control:focus {border-color: #ffe082; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2); }
+.btn {float:right;}
+
+/* colors: #ffc107, #aeea00 */

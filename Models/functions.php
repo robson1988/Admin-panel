@@ -14,7 +14,7 @@ class Dbh {
 
       $this->servername = "localhost";
       $this->username = "root";
-      $this->password = "root";
+      $this->password = "";
       $this->dbname = "login_system";
       $this->charset = "utf8mb4";
 
@@ -48,7 +48,7 @@ public function login($login, $pass)
    {
        try
        {
-           $sql = "SELECT user_name, user_pass FROM users WHERE user_name= :login";
+           $sql = "SELECT user_login, user_pass FROM users WHERE user_login= :login";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(':login', $login);
            $stmt->execute();
@@ -62,7 +62,7 @@ public function login($login, $pass)
 
                $_SESSION['logedIn'] = true;
                $_SESSION['uId'] = $result['id'];
-               $_SESSION['uName'] = $result['user_name'];
+               $_SESSION['uLogin'] = $result['user_login'];
                $_SESSION['uMail'] = $result['user_email'];
 
                header('Location: ../Content/includes/dashboard.php');
@@ -107,7 +107,7 @@ public function login($login, $pass)
 public function Register($nlogin, $npass, $nemail) {
 
   try {
-    $sql= "SELECT user_name, user_email FROM users WHERE user_name = :newlogin OR user_email = :newemail";
+    $sql= "SELECT user_login, user_email FROM users WHERE user_login = :newlogin OR user_email = :newemail";
     $stmt = $this->conn->prepare($sql);
 
     $stmt->bindParam(":newlogin", $nlogin);
@@ -121,7 +121,7 @@ public function Register($nlogin, $npass, $nemail) {
       exit();
       } else {
       $hashedPwd = password_hash($npass, PASSWORD_DEFAULT);
-      $sql = "INSERT INTO users (user_name, user_pass, user_email) VALUES (:newlogin, :hashedPwd, :newemail)";
+      $sql = "INSERT INTO users (user_login, user_pass, user_email) VALUES (:newlogin, :hashedPwd, :newemail)";
       $stmt = $this->conn->prepare($sql);
 
       $stmt->bindParam(":newlogin", $nlogin);

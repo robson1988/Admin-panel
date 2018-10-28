@@ -5,15 +5,15 @@
 <body>
 
 <form method="post" action="../Controllers/login.php">
-<input type="text" name="login"/>
-<input type="password" name="pass"/>
+<input type="text" name="login" placeholder="Login"/>
+<input type="password" name="pass" placeholder="Haslo"/>
 <input type="submit" value="Login" name="loginbutton"/>
 <?php if(isset($_SESSION['msg_error'])) {
   echo "<br>".$_SESSION['msg_error'];
   session_unset();
 } ?>
 </form>
-
+<h5> Nie masz konta?<a href="../Controllers/register.php"> Zarejestruj sie </a>za darmo!</h5>
 
 
 
