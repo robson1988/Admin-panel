@@ -35,8 +35,8 @@
   <div class="top-navigation ">
 
     <ul class="nav justify-content-end pr-3 admin-bg">
-      <li class= "nav-item"><a class="nav-link" href="../public_html/index.php"><i class="fas fa-home"></i> Homepage</a></li>
-      <li class= "nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fas fa-user"></i> <?php echo $_SESSION['uLogin']; ?> Bajorek</a>
+      <li class= "nav-item"><a class="nav-link" href="../../public_html/index.php"><i class="fas fa-home"></i> Homepage</a></li>
+      <li class= "nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fas fa-user"></i> <?php echo $_SESSION['uLogin']; ?> </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="profile.php"><i class="fas fa-user-edit"></i> Edit Profile</a>
             <a class="dropdown-item" href="#"><i class="fas fa-envelope"></i> Messages</a>

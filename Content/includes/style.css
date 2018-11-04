@@ -18,6 +18,30 @@ body { font-family: Tahoma;}
 
 .nav-tabs .nav-link {color:rgba(0,0,0, 0.5); text-shadow: none;margin-bottom: -2px;}
 .form-control:focus {border-color: #ffe082; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2); }
-.btn {float:right;}
+.row {margin:0;}
+.btn-custom {color: rgb(230, 230, 230);
+font-size: 1.1em;
+text-shadow: 0px 1px 0px rgba(30, 30, 30, 0.8);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+background: rgb(116, 214, 0);
+background: -moz-linear-gradient(90deg, rgb(116, 214, 0) 37%, rgb(99, 170, 0) 80%);
+background: -webkit-linear-gradient(90deg, rgb(116, 214, 0) 37%, rgb(99, 170, 0) 80%);
+background: -o-linear-gradient(90deg, rgb(116, 214, 0) 37%, rgb(99, 170, 0) 80%);
+background: -ms-linear-gradient(90deg, rgb(116, 214, 0) 37%, rgb(99, 170, 0) 80%);
+background: linear-gradient(0deg, rgb(116, 214, 0) 37%, rgb(99, 170, 0) 80%);
+-webkit-box-shadow: 0px 2px 9px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 2px 9px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 2px 9px rgba(50, 50, 50, 0.75);}
+.btn-custom:hover {
+  cursor: pointer;
+background: -moz-linear-gradient(90deg, rgb(99, 170, 0) 37%, rgb(116, 214, 0) 80%);
+background: -webkit-linear-gradient(90deg, rgb(99, 170, 0) 37%, rgb(116, 214, 0) 80%);
+background: -o-linear-gradient(90deg, rgb(99, 170, 0) 37%, rgb(116, 214, 0) 80%);
+background: -ms-linear-gradient(90deg, rgb(99, 170, 0) 37%, rgb(116, 214, 0) 80%);
+background: linear-gradient(0deg, rgb(99, 170, 0) 37%, rgb(116, 214, 0) 80%);
+transition-duration: 0.5s;
+}
 
 /* colors: #ffc107, #aeea00 */

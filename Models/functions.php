@@ -48,7 +48,7 @@ public function login($login, $pass)
    {
        try
        {
-           $sql = "SELECT user_login, user_pass FROM users WHERE user_login= :login";
+           $sql = "SELECT * FROM users WHERE user_login= :login";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(':login', $login);
            $stmt->execute();
@@ -64,6 +64,15 @@ public function login($login, $pass)
                $_SESSION['uId'] = $result['id'];
                $_SESSION['uLogin'] = $result['user_login'];
                $_SESSION['uMail'] = $result['user_email'];
+               $_SESSION['uName'] = $result['user_name'];
+               $_SESSION['uSurname'] = $result['user_surname'];
+               $_SESSION['uPostCode'] = $result['user_post_code'];
+               $_SESSION['uAdres'] = $result['user_adres'];
+               $_SESSION['uCity'] = $result['user_city'];
+               $_SESSION['uCounty'] = $result['user_county'];
+               $_SESSION['uPhoneNum'] = $result['user_phone_num'];
+               $_SESSION['uImage'] = $result['user_image'];
+
 
                header('Location: ../Content/includes/dashboard.php');
 
@@ -147,6 +156,20 @@ public function logOut(){             //  WYLOGOWANIE UZYTKOWNIKA
 
   session_unset($_SESSION['logedIn']);
   return true;
+}
+
+
+}
+
+                                      // EDYTOWANIE PROFILU UZYTKOWNIKA UZYTKOWNIKA
+class EditProfile {
+
+  public function __construct(){
+
+           $database = new Dbh();
+           $db = $database->connect();
+           $this->conn = $db;
+
 }
 
 
