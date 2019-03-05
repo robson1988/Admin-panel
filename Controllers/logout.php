@@ -1,13 +1,10 @@
 <?php
+session_start();
 include_once "../Models/functions.php";
-
-  if(!isset($_SESSION['logedIn'])) {
-    header('Location: ../public_html/index.php');
-    exit();
-    } else {
-      $userLogOut = new User;
+print_r($_SESSION);
+  if($_SESSION['logedIn']==1) {
+     $userLogOut = new User;
       $userLogOut->logOut();
-    
-      header('Location: ../public_html/index.php');
-      exit();
-    }
+	  header('Location: ../public_html');
+    exit();
+   }
